@@ -221,9 +221,9 @@ int main(void)
    	setNumberOnClock(minute/5);
    	setNumberOnClock(hour/5);
    	second++;
-//   	  clearNumberOnClock(second/5);
-//   	clearNumberOnClock(minute/5);
-//   	clearNumberOnClock(hour/5);
+   	  clearNumberOnClock(second/5);
+   	clearNumberOnClock(minute/5);
+   	clearNumberOnClock(hour/5);
 
    	  HAL_Delay(1000);
    }
