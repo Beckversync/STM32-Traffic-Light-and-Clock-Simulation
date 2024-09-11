@@ -83,42 +83,42 @@ int main(void)
 		void setNumberOnClock(int num)
 		{
 			switch(num){
-			case 1:
-				HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, SET);
+			case 0:
+				HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, SET);
 				break;
 
+			case 1:
+			    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, SET);
+				  break;
 			case 2:
-			    HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, SET);
-				  break;
-			case 3:
-				 HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, SET);
-				  break;
-			case 4:
 				 HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, SET);
 				  break;
-			case 5:
+			case 3:
 				 HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, SET);
 				  break;
-			case 6:
-				HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, SET);
-				 break;
-			case 7:
+			case 4:
+				 HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, SET);
+				  break;
+			case 5:
 				HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, SET);
 				 break;
-			case 8:
+			case 6:
 				HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, SET);
-				break;
-			case 9:
+				 break;
+			case 7:
 				HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, SET);
 				break;
-			case 10:
-				 HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, SET);
+			case 8:
+				HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, SET);
+				break;
+			case 9:
+				 HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, SET);
 				 break;
-			case 11:
-				  HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, SET);
+			case 10:
+				  HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, SET);
 				  break;
-			case 12:
-				HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, SET);
+			case 11:
+				HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, SET);
 				  default:
 					  break;
 				  }
@@ -128,42 +128,42 @@ int main(void)
 		void clearNumberOnClock(int num)
 		{
 			switch(num){
-			case 1:
-				HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, RESET);
+			case 0:
+				HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, RESET);
 				break;
 
+			case 1:
+			    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, RESET);
+				  break;
 			case 2:
-			    HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, RESET);
-				  break;
-			case 3:
-				 HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, RESET);
-				  break;
-			case 4:
 				 HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, RESET);
 				  break;
-			case 5:
+			case 3:
 				 HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, RESET);
 				  break;
-			case 6:
-				HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, RESET);
-				 break;
-			case 7:
+			case 4:
+				 HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, RESET);
+				  break;
+			case 5:
 				HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, RESET);
 				 break;
-			case 8:
+			case 6:
 				HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, RESET);
-				break;
-			case 9:
+				 break;
+			case 7:
 				HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, RESET);
 				break;
-			case 10:
-				 HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, RESET);
+			case 8:
+				HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, RESET);
+				break;
+			case 9:
+				 HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, RESET);
 				 break;
-			case 11:
-				  HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, RESET);
+			case 10:
+				  HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, RESET);
 				  break;
-			case 12:
-				HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, RESET);
+			case 11:
+				HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, RESET);
 				  default:
 					  break;
 				  }
@@ -195,7 +195,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int status=1;
-  int num=1;
+  int num=0;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -263,7 +263,7 @@ int main(void)
             num++;
 			break;
 		case 13:
-			clearNumberOnClock(12);
+			clearNumberOnClock(7);
 			break;
 		case 14:
 			clearAllClock();
