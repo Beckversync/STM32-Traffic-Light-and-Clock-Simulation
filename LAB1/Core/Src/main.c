@@ -290,7 +290,7 @@ int main(void)
  			HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, RESET);
  			HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, RESET);
  			HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, SET);
- 			count=1;
+ 			clearAllClock();
  			break;
  		default:
  			break;
