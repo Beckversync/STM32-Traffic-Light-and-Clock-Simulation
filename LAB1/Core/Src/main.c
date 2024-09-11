@@ -345,7 +345,7 @@ int main(void)
 				count=2;
 				status=4;
 				count_led_1=2;
-				count_led_2=3;
+//				count_led_2=3;
 			}
 			break;
 		case 4:
@@ -362,7 +362,7 @@ int main(void)
 				count=3;
 				status=1;
 				count_led_1=5;
-				count_led_2=2;
+				count_led_2=3;
 			}
 			break;
 		default:
