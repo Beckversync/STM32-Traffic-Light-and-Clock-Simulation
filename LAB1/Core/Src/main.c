@@ -197,10 +197,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-   int second=0;
-   int hour=0;
-   int minute=0;
-   int pre_led_num, cur_led_num;
+
    int second, minute, hour;
      second = minute = hour = 0;
      int num_led = 12;
@@ -214,30 +211,7 @@ int main(void)
 
    while (1)
    {
-	   second++;
-	   if (second>=60)
-	   {
-		   second=0;
-		   minute++;
-	   }
-	   if (minute>60)
-	   {
-		   minute=0;
-		   hour++;
-	   }
-	   if ( hour >=12)
-	   {
-		   hour =0;
-	   }
 
-	   int pre_led_num= setNumberOnClock(second/5);
-	   int cur_led_num = ( pre_led_num + second -1 )%12;
-
-	   setNumberOnClock(mintue/5);
-	   setNumberOnClock(hour);
-	   clearNumberOnClock(minute/5);
-	   clearNumberOnClock(minute/5);
-	   clearNumberOnClock(hour);
 
 
 
