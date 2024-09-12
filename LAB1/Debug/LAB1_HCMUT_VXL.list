@@ -345,9 +345,9 @@ int main(void)
  80002e2:	68f8      	ldr	r0, [r7, #12]
  80002e4:	f000 f828 	bl	8000338 <clearNumberOnClock.5448>
 
-	    	  if(hour >= 24){
+	    	  if(hour >= 12){
  80002e8:	69fb      	ldr	r3, [r7, #28]
- 80002ea:	2b17      	cmp	r3, #23
+ 80002ea:	2b0b      	cmp	r3, #11
  80002ec:	dd01      	ble.n	80002f2 <main+0xae>
 	    		  hour = 0;
  80002ee:	2300      	movs	r3, #0
@@ -393,11 +393,12 @@ int main(void)
  8000326:	3301      	adds	r3, #1
  8000328:	627b      	str	r3, [r7, #36]	; 0x24
 
-	    	  HAL_Delay(1000);
- 800032a:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 800032e:	f000 f9fd 	bl	800072c <HAL_Delay>
+	    	  HAL_Delay(1);
+ 800032a:	2001      	movs	r0, #1
+ 800032c:	f000 f9fe 	bl	800072c <HAL_Delay>
    {
- 8000332:	e799      	b.n	8000268 <main+0x24>
+ 8000330:	e79a      	b.n	8000268 <main+0x24>
+ 8000332:	bf00      	nop
  8000334:	66666667 	.word	0x66666667
 
 08000338 <clearNumberOnClock.5448>:
