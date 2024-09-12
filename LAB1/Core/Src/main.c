@@ -198,70 +198,51 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-   int second, minute, hour;
+  	 int second, minute, hour;
      second = minute = hour = 0;
-     int num_led = 12;
-     int second_distance = 60 / num_led;
-     int minute_distance = 60 / num_led;
-     int hour_distance = 24 / num_led;
-     int cur_led_sec, cur_led_min, cur_led_hour;
-     int pre_led_sec, pre_led_min, pre_led_hour;
-     int minute_change = 0;
-     int hour_change = 0;
 
    while (1)
    {
-
-
-
-
-
-
-	   if(second == 60){
+	   if(second >= 60){
 	    		  second = 0;
 	    		  minute++;
-	    		  minute_change = 1;
+
 	    	  }
+	   int cur_led_sec= second/5;
+	   int pre_led_sec= (0+cur_led_sec-1);
+	   if ( cur_led_sec==0)
+	   {
+		   clearNumberOnClock(11);
+	   }
+	   clearNumberOnClock(pre_led_sec);
 
 	    	  if(minute == 60){
 	    		  minute = 0;
 	    		  hour++;
-	    		  hour_change = 1;
+
 	    	  }
+
+	     int cur_led_minute = minute/5;
+	     int pre_led_minute=cur_led_minute -1 ;
+	     if ( cur_led_minute==0)
+	     {
+	    	 clearNumberOnClock(11);
+	     }
+	    clearNumberOnClock(pre_led_minute);
 
 	    	  if(hour == 24){
 	    		  hour = 0;
 	    	  }
+	    int cur_led_hour=hour;
+	    int pre_led_hour = cur_led_hour-1;
+	    clearNumberOnClock(pre_led_hour);
 
-	    	  // identify current led of second
-	    	  cur_led_sec = second / second_distance;
-	    	  // turn of previous led of second
-	    	  pre_led_sec = (num_led + (cur_led_sec - 1)) % num_led;
-	    	  clearNumberOnClock(pre_led_sec);
-
-	    	  if(minute_change){
-	    		  // identify current led of minute
-	    		  cur_led_min = minute / minute_distance;
-	    		  // turn off previous led of minute
-	    		  pre_led_min = (num_led + (cur_led_min - 1)) % num_led;
-	    		  clearNumberOnClock(pre_led_min);
-	    		  minute_change = 0;
-	    	  }
-
-	    	  if(hour_change){
-	    		  // identify current led of hour
-	    		  cur_led_hour = hour / hour_distance;
-	    		  // turn off previous led of hour
-	    		  pre_led_hour = (num_led + (cur_led_hour - 1)) % num_led;
-	    		  clearNumberOnClock(pre_led_hour);
-	    		  hour_change = 0;
-	    	  }
 
 	    	  // turn on current led of second
 	    	  setNumberOnClock(cur_led_sec);
 
 	    	  // turn on current led of minute
-	    	  setNumberOnClock(cur_led_min);
+	    	  setNumberOnClock(cur_led_minute);
 
 	    	  // turn on current led of hour
 	    	  setNumberOnClock(cur_led_hour);
