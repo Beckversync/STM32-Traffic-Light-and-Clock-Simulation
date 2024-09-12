@@ -230,7 +230,7 @@ int main(void)
 	     }
 	    clearNumberOnClock(pre_led_minute);
 
-	    	  if(hour == 24){
+	    	  if(hour >= 24){
 	    		  hour = 0;
 	    	  }
 	    int cur_led_hour=hour;

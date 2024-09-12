@@ -302,10 +302,10 @@ int main(void)
  80002a2:	6978      	ldr	r0, [r7, #20]
  80002a4:	f000 f848 	bl	8000338 <clearNumberOnClock.5448>
 
-	    	  if(minute == 60){
+	    	  if(minute >= 60){
  80002a8:	6a3b      	ldr	r3, [r7, #32]
- 80002aa:	2b3c      	cmp	r3, #60	; 0x3c
- 80002ac:	d104      	bne.n	80002b8 <main+0x74>
+ 80002aa:	2b3b      	cmp	r3, #59	; 0x3b
+ 80002ac:	dd04      	ble.n	80002b8 <main+0x74>
 	    		  minute = 0;
  80002ae:	2300      	movs	r3, #0
  80002b0:	623b      	str	r3, [r7, #32]
@@ -345,10 +345,10 @@ int main(void)
  80002e2:	68f8      	ldr	r0, [r7, #12]
  80002e4:	f000 f828 	bl	8000338 <clearNumberOnClock.5448>
 
-	    	  if(hour == 24){
+	    	  if(hour >= 24){
  80002e8:	69fb      	ldr	r3, [r7, #28]
- 80002ea:	2b18      	cmp	r3, #24
- 80002ec:	d101      	bne.n	80002f2 <main+0xae>
+ 80002ea:	2b17      	cmp	r3, #23
+ 80002ec:	dd01      	ble.n	80002f2 <main+0xae>
 	    		  hour = 0;
  80002ee:	2300      	movs	r3, #0
  80002f0:	61fb      	str	r3, [r7, #28]
