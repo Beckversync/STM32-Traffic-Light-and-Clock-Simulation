@@ -200,37 +200,108 @@ int main(void)
    int second=0;
    int hour=0;
    int minute=0;
+   int pre_led_num, cur_led_num;
+   int second, minute, hour;
+     second = minute = hour = 0;
+     int num_led = 12;
+     int second_distance = 60 / num_led;
+     int minute_distance = 60 / num_led;
+     int hour_distance = 24 / num_led;
+     int cur_led_sec, cur_led_min, cur_led_hour;
+     int pre_led_sec, pre_led_min, pre_led_hour;
+     int minute_change = 0;
+     int hour_change = 0;
+
    while (1)
    {
+	   second++;
+	   if (second>=60)
+	   {
+		   second=0;
+		   minute++;
+	   }
+	   if (minute>60)
+	   {
+		   minute=0;
+		   hour++;
+	   }
+	   if ( hour >=12)
+	   {
+		   hour =0;
+	   }
 
-   	  if(second >= 60){
-   		  second = 0;
-   		  minute++;
-   	  }
+	   int pre_led_num= setNumberOnClock(second/5);
+	   int cur_led_num = ( pre_led_num + second -1 )%12;
 
-   	  if(minute >= 60){
-   		  minute = 0;
-   		  hour++;
-   	  }
+	   setNumberOnClock(mintue/5);
+	   setNumberOnClock(hour);
+	   clearNumberOnClock(minute/5);
+	   clearNumberOnClock(minute/5);
+	   clearNumberOnClock(hour);
 
-   	  if(hour >= 24){
-   		  hour = 0;
-   	  }
 
-   	  setNumberOnClock(second/5);
-   	setNumberOnClock(minute/5);
-   	setNumberOnClock(hour/5);
-   	second++;
-   	  clearNumberOnClock(second/5);
-   	clearNumberOnClock(minute/5);
-   	clearNumberOnClock(hour/5);
 
-   	  HAL_Delay(1000);
+
+
+	   if(second == 60){
+	    		  second = 0;
+	    		  minute++;
+	    		  minute_change = 1;
+	    	  }
+
+	    	  if(minute == 60){
+	    		  minute = 0;
+	    		  hour++;
+	    		  hour_change = 1;
+	    	  }
+
+	    	  if(hour == 24){
+	    		  hour = 0;
+	    	  }
+
+	    	  // identify current led of second
+	    	  cur_led_sec = second / second_distance;
+	    	  // turn of previous led of second
+	    	  pre_led_sec = (num_led + (cur_led_sec - 1)) % num_led;
+	    	  clearNumberOnClock(pre_led_sec);
+
+	    	  if(minute_change){
+	    		  // identify current led of minute
+	    		  cur_led_min = minute / minute_distance;
+	    		  // turn off previous led of minute
+	    		  pre_led_min = (num_led + (cur_led_min - 1)) % num_led;
+	    		  clearNumberOnClock(pre_led_min);
+	    		  minute_change = 0;
+	    	  }
+
+	    	  if(hour_change){
+	    		  // identify current led of hour
+	    		  cur_led_hour = hour / hour_distance;
+	    		  // turn off previous led of hour
+	    		  pre_led_hour = (num_led + (cur_led_hour - 1)) % num_led;
+	    		  clearNumberOnClock(pre_led_hour);
+	    		  hour_change = 0;
+	    	  }
+
+	    	  // turn on current led of second
+	    	  setNumberOnClock(cur_led_sec);
+
+	    	  // turn on current led of minute
+	    	  setNumberOnClock(cur_led_min);
+
+	    	  // turn on current led of hour
+	    	  setNumberOnClock(cur_led_hour);
+
+	    	  second++;
+
+	    	  HAL_Delay(1000);
+
    }
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
   }
   /* USER CODE END 3 */
 
