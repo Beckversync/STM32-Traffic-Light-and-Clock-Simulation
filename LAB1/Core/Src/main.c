@@ -216,7 +216,7 @@ int main(void)
 	   }
 	   clearNumberOnClock(pre_led_sec);
 
-	    	  if(minute == 60){
+	    	  if(minute >= 60){
 	    		  minute = 0;
 	    		  hour++;
 
