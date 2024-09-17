@@ -393,11 +393,12 @@ int main(void)
  8000326:	3301      	adds	r3, #1
  8000328:	627b      	str	r3, [r7, #36]	; 0x24
 
-	    	  HAL_Delay(1000);
- 800032a:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 800032e:	f000 f9fd 	bl	800072c <HAL_Delay>
+	    	  HAL_Delay(10);
+ 800032a:	200a      	movs	r0, #10
+ 800032c:	f000 f9fe 	bl	800072c <HAL_Delay>
    {
- 8000332:	e799      	b.n	8000268 <main+0x24>
+ 8000330:	e79a      	b.n	8000268 <main+0x24>
+ 8000332:	bf00      	nop
  8000334:	66666667 	.word	0x66666667
 
 08000338 <clearNumberOnClock.5448>:
