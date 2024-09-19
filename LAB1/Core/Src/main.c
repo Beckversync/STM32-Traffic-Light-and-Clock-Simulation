@@ -249,7 +249,7 @@ int main(void)
 
 	    	  second++;
 
-	    	  HAL_Delay(10);
+	    	  HAL_Delay(1000);
 
    }
 
