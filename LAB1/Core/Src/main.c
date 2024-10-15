@@ -199,7 +199,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   	 int second, minute, hour;
-     second = minute = hour = 0;
+  	 hour =5;
+
+     minute=59;
+     second=50;
 
    while (1)
    {

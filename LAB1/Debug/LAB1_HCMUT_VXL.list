@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  000155cc  00000000  00000000  00024738  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00004648  00000000  00000000  00039d04  2**0
+ 17 .debug_line   00004646  00000000  00000000  00039d04  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00079a6f  00000000  00000000  0003e34c  2**0
+ 18 .debug_str    00079a6f  00000000  00000000  0003e34a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000b7dbb  2**0
+ 19 .comment      00000053  00000000  00000000  000b7db9  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000d94  00000000  00000000  000b7e10  2**2
+ 20 .debug_frame  00000d94  00000000  00000000  000b7e0c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -250,12 +250,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   	 int second, minute, hour;
-     second = minute = hour = 0;
- 800025c:	2300      	movs	r3, #0
+  	 hour =5;
+ 800025c:	2305      	movs	r3, #5
  800025e:	61fb      	str	r3, [r7, #28]
- 8000260:	69fb      	ldr	r3, [r7, #28]
+
+     minute=59;
+ 8000260:	233b      	movs	r3, #59	; 0x3b
  8000262:	623b      	str	r3, [r7, #32]
- 8000264:	6a3b      	ldr	r3, [r7, #32]
+     second=50;
+ 8000264:	2332      	movs	r3, #50	; 0x32
  8000266:	627b      	str	r3, [r7, #36]	; 0x24
 
    while (1)
