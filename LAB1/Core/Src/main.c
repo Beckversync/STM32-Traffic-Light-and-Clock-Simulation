@@ -91,7 +91,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int count=3;
+  int count=2;
   int status=1;
   while (1)
   {
@@ -101,8 +101,8 @@ int main(void)
 	  switch (status) {
 		case 1:
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
-			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, RESET);
-			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, SET);
+			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, SET);
+			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, RESET);
 
 			HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port, LED_YELLOW_2_Pin, RESET);
 			HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin, SET);
@@ -110,26 +110,11 @@ int main(void)
 			count --;
 			if (count<=0)
 			{
-				count=2;
+				count=3;
 				status=2;
 			}
 			break;
 		case 2:
-			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
-			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, RESET);
-
-			HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port, LED_YELLOW_2_Pin, RESET);
-			HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port	, LED_GREEN_2_Pin, RESET);
-			count --;
-			if (count<=0)
-			{
-				count=3;
-				status=3;
-			}
-			break;
-		case 3:
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
 			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, RESET);
 			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, RESET);
@@ -141,10 +126,10 @@ int main(void)
 			if (count<=0)
 			{
 				count=2;
-				status=4;
+				status=3;
 			}
 			break;
-		case 4:
+		case 3:
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
 			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, RESET);
 			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, RESET);
@@ -156,6 +141,21 @@ int main(void)
 			if (count<=0)
 			{
 				count=3;
+				status=4;
+			}
+			break;
+		case 4:
+			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
+			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, RESET);
+			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, SET);
+
+			HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port, LED_YELLOW_2_Pin, RESET);
+			HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin, SET);
+			HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port	, LED_GREEN_2_Pin, RESET);
+			count --;
+			if (count<=0)
+			{
+				count=2;
 				status=1;
 			}
 			break;
