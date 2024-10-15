@@ -103,20 +103,18 @@ int main(void)
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
 			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, SET);
 			count --;
-			if (count<=0)
-			{
-				count=2;
-				status=2;
+			if(count<=0){
+				count =2;
+				status =2;
 			}
 			break;
 		case 2:
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
 			HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, RESET);
-			count--;
-			if(count<=0)
-			{
+			count --;
+			if(count<=0){
 				count =2;
-				status=1;
+				status =1;
 			}
 			break;
 		default:
